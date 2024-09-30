@@ -9,8 +9,13 @@ mangum = "*"
 requests = "*"
 
 [dev-packages]
+fastapi = "*"
+mangum = "*"
+requests = "*"
 gunicorn = "*"
 uvicorn = "*"
+httpx = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.12"

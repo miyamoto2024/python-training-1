@@ -13,15 +13,9 @@ Resources:
   MyLambdaFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: src/
+      CodeUri: app/
       Handler: app.lambda_handler
       Runtime: python3.11
-      Events:
-        HelloWorld:
-          Type: Api
-          Properties:
-            Path: /{proxy+}
-            Method: ANY
       FunctionUrlConfig:
         AuthType: NONE
         InvokeMode: BUFFERED

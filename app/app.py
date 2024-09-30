@@ -1,4 +1,4 @@
 from mangum import Mangum
-from router import app
+from app.router import app
 
 lambda_handler = Mangum(app)

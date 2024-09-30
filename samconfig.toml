@@ -2,4 +2,6 @@ version=0.1
 
 [default.build.parameters]
 debug = true
-use_container = true
+resolve_s3 = true
+capabilities = "CAPABILITY_IAM"
+confirm_changeset = true
