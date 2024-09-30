@@ -1,0 +1,38 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: SAM Template for Python 3.11 Lambda with Function URL
+
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 128
+    Architectures:
+      - x86_64
+
+Resources:
+  MyLambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: app.lambda_handler
+      Runtime: python3.11
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: ANY
+      FunctionUrlConfig:
+        AuthType: NONE
+        InvokeMode: BUFFERED
+        Cors:
+          AllowOrigins:
+            - "*"
+          AllowMethods:
+            - GET
+          MaxAge: 300
+
+Outputs:
+  FunctionUrl:
+    Description: "Lambda Function URL"
+    Value: !GetAtt MyLambdaFunctionUrl.FunctionUrl
