@@ -1,6 +1,12 @@
 version=0.1
 
+[default]
+
 [default.build.parameters]
+debug = true
+resolve_s3 = true
+
+[default.deploy.parameters]
 debug = true
 resolve_s3 = true
 capabilities = "CAPABILITY_IAM"
